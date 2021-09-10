@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public class Calculate {
     //variables
     private static String prop;
@@ -20,7 +22,12 @@ public class Calculate {
         else if(prop.equals("*"))
             c = a * b;
         else if(prop.equals("%"))
-            c = a / b;
+            if(b == 0){
+                JOptionPane.showMessageDialog(null, "Error: Division by zero");
+                return b;
+            }
+            else
+                c = a / b;
         return c;}
     public String getprop(){return prop;}
     public static double getC(){
